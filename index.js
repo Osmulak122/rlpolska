@@ -5,7 +5,7 @@ const PREFIX = "!";
 
 
 bot.on("ready", function() {
-    bot.user.setGame('!pomoc');
+    bot.user.setActivity('!pomoc');
     console.log("Im Ready!");
 });
 
