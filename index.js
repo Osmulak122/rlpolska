@@ -30,22 +30,22 @@ bot.on("message", function(message) {
                 break;
             case "pc":
             var role = message.member.guild.roles.find('name', 'PC');
-                message.channel.send("Przypisano rolę **PC**");
+                message.author("Przypisano rolę **PC**");
                 message.member.addRole(role)
                 break;
             case "ps4":
             var role2 = message.member.guild.roles.find('name', 'PS4');
-                message.channel.send("Przypisano rolę **PS4**");
+                message.author("Przypisano rolę **PS4**");
                 message.member.addRole(role2)
                 break;
             case "xbox":
             var role3 = message.member.guild.roles.find('name', 'XBOX');
-                message.channel.send("Przypisano rolę **XBOX**");
+                message.author("Przypisano rolę **XBOX**");
                 message.member.addRole(role3)
                 break;     
             case "news":
             var role_news = message.member.guild.roles.find('name', 'News');
-                message.channel.send("Przypisano rolę **NEWS**");
+                message.author("Przypisano rolę **NEWS**");
                 message.member.addRole(role_news)
                 break;
 
