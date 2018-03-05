@@ -22,7 +22,7 @@ bot.on("message", function(message) {
                 message.channel.send("<http://grupa.rl-polska.pl>");
                 break;
             case "pomoc":
-                message.channel.send("***Aktualnie dostępne komendy:***\n\n__**Ogólne:**__\n**!administracja**\n**!grupa**\n\n__**Przydzielające Rolę:**__\n**!pc**\n**!ps4**\n**!xbox**\n**news**");
+                message.channel.send("***Aktualnie dostępne komendy:***\n\n__**Ogólne:**__\n**!administracja**\n**!grupa**\n\n__**Przydzielające Rolę:**__\n**!pc**\n**!ps4**\n**!xbox**\n**!news**");
                 break;
             case "fanpage":
                 message.channel.send("<https://www.facebook.com/RLPolska/>");
