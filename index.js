@@ -10,6 +10,13 @@ bot.on("ready", function() {
 });
 
 bot.on('messageReactionAdd', (reaction, user) => {
+    var Welcome = client.channels.find("name", "welcome");
+    var Emoji = "✅";
+    if (!reaction.channel == Welcome) return;
+    if (!reaction.emoji.name == Emoji) return;
+
+    //Your code here
+});
             
 });
 
