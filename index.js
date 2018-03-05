@@ -5,7 +5,7 @@ const PREFIX = "!";
 
 
 bot.on("ready", function() {
-    bot.user.setGame('grupa.rl-polska.pl')
+    bot.user.setGame('!pomoc')
     console.log("Im Ready!");
 });
 
