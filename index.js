@@ -26,10 +26,10 @@ bot.on("message", function(message) {
 
         switch (args[0].toLowerCase()) {
             case "grupa":
-                message.channel.send("<http://grupa.rl-polska.pl");
+                message.channel.send("<http://grupa.rl-polska.pl>");
                 break;
             case "pomoc":
-                message.channel.send("***Aktualnie dostępne komendy:***\n\n**!grupa**\n**!administracja**");
+                message.channel.send("***Aktualnie dostępne komendy:***\n\n**!grupa**\n**!fanpage**");
                 break;
             case "fanpage":
                 message.channel.send("<https://www.facebook.com/RLPolska/>");
