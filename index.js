@@ -12,8 +12,10 @@ bot.on("ready", function() {
 bot.on('messageReactionAdd', (reaction, user) => {
     var Welcome = client.channels.find("name", "początek");
     var Emoji = "✅";
+    var rolenews = member.guild.roles.find('name', 'News');
     if (!reaction.channel == Welcome) return;
     if (!reaction.emoji.name == Emoji) return;
+    member.roleAdd(rolenews);
 
     console.log();
 });
