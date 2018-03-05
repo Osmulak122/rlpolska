@@ -3,7 +3,6 @@ var bot = new Discord.Client();
 
 const PREFIX = "!";
 
-var pc = member.guild.roles.find("name", "PC");
 
 bot.on("ready", function() {
     bot.user.setGame('grupa.rl-polska.pl')
@@ -11,7 +10,8 @@ bot.on("ready", function() {
 });
 
 
-bot.on("message", function(message, member) {
+
+bot.on("message", function(message) {
     if (message.author.equals(bot.user)) return;
 
     if (!message.content.startsWith(PREFIX)) return;
@@ -22,20 +22,36 @@ bot.on("message", function(message, member) {
                 message.channel.send("<http://grupa.rl-polska.pl>");
                 break;
             case "pomoc":
-                message.channel.send("***Aktualnie dostępne komendy:***\n\n**!grupa**\n**!fanpage**");
+                message.channel.send("***Aktualnie dostępne komendy:***\n\n__**Ogólne**__**!administracja**\n**!grupa**\n\n__**Przydzielające Rolę**__\n**!pc**\n**!ps4**\n**!xbox**\n**news**");
                 break;
             case "fanpage":
                 message.channel.send("<https://www.facebook.com/RLPolska/>");
+                message.react("✅");
                 break;
-            case "PC":
-                message.author("przydzielono range **PC**");
-                member.addRole(pc);
+            case "pc":
+            var role = message.member.guild.roles.find('name', 'PC');
+                message.channel.send("Przypisano rolę **PC**");
+                message.member.addRole(role)
                 break;
-                
+            case "ps4":
+            var role2 = message.member.guild.roles.find('name', 'PS4');
+                message.channel.send("Przypisano rolę **PS4**");
+                message.member.addRole(role2)
+                break;
+            case "xbox":
+            var role3 = message.member.guild.roles.find('name', 'XBOX');
+                message.channel.send("Przypisano rolę **XBOX**");
+                message.member.addRole(role3)
+                break;     
+            case "news":
+            var role_news = message.member.guild.roles.find('name', 'News');
+                message.channel.send("Przypisano rolę **NEWS**");
+                message.member.addRole(role_news)
+                break;
+
         }
     }  
 )
-
 
 
 
