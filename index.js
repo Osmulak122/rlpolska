@@ -26,9 +26,12 @@ bot.on("message", function(message, member) {
                 break;
             case "fanpage":
                 message.channel.send("<https://www.facebook.com/RLPolska/>");
+                break;
             case "PC":
                 message.author("przydzielono range **PC**");
                 member.addRole(pc);
+                break;
+                
         }
     }  
 )
