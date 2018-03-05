@@ -3,22 +3,15 @@ var bot = new Discord.Client();
 
 const PREFIX = "!";
 
+var pc = member.guild.roles.find("name", "PC");
 
 bot.on("ready", function() {
     bot.user.setGame('grupa.rl-polska.pl')
     console.log("Im Ready!");
 });
 
-bot.on('messageReactionAdd', (reaction, user) => {
-    var Welcome = client.channels.find("name", "początek");
-    var Emoji = "✅";
-    var rolenews = member.guild.roles.find('name', 'News');
-    if (!reaction.channel == Welcome) return;
-    if (!reaction.emoji.name == Emoji) return;
-    member.addRole(rolenews);
-});
 
-bot.on("message", function(message) {
+bot.on("message", function(message, member) {
     if (message.author.equals(bot.user)) return;
 
     if (!message.content.startsWith(PREFIX)) return;
@@ -33,6 +26,9 @@ bot.on("message", function(message) {
                 break;
             case "fanpage":
                 message.channel.send("<https://www.facebook.com/RLPolska/>");
+            case "PC":
+                message.author("przydzielono range **PC**");
+                member.addRole(pc);
         }
     }  
 )
