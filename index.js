@@ -15,9 +15,7 @@ bot.on('messageReactionAdd', (reaction, user) => {
     var rolenews = member.guild.roles.find('name', 'News');
     if (!reaction.channel == Welcome) return;
     if (!reaction.emoji.name == Emoji) return;
-    member.roleAdd(rolenews);
-
-    console.log();
+    member.addRole(rolenews);
 });
 
 bot.on("message", function(message) {
@@ -38,6 +36,10 @@ bot.on("message", function(message) {
         }
     }  
 )
+
+
+
+
 
 
 
