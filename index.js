@@ -1,5 +1,19 @@
 const Discord = require('discord.js');
+var rls = require('rls-api');
 var bot = new Discord.Client();
+
+
+var rlsClient = new rls.Client({
+    token: "X8ELHWIWBNDP0HAGVDA27PAZUBAAN94Y"
+});
+
+var rank = ["U","B1", "B2", "B3",
+            "S1", "S2", "S3",
+            "G1", "G2", "G3",
+            "P1", "P2", "P3",
+            "D1", "D2", "D3",
+            "C1", "C2", "C3",
+            "GC"];
 
 const PREFIX = "!";
 
@@ -22,7 +36,7 @@ bot.on("message", function(message) {
                 message.channel.send("<http://grupa.rl-polska.pl>");
                 break;
             case "pomoc":
-                message.channel.send("***Aktualnie dostępne komendy:***\n\n__**Ogólne:**__\n**!administracja**\n**!grupa**\n\n__**Przydzielające Rolę:**__\n**!pc**\n**!ps4**\n**!xbox**\n**!news**");
+                message.channel.send("***Aktualnie dostępne komendy:***\n\n__**Ogólne:**__\n**!administracja**\n**!grupa**\n\n__**Przydzielające Rolę:**__\n**!pc**\n**!ps4**\n**!xbox**\n**!news**\n\n__**Ranga:**__\n**!ranga link/customNick/numerProfilu");
                 break;
             case "fanpage":
                 message.channel.send("<https://www.facebook.com/RLPolska/>");
@@ -51,15 +65,59 @@ bot.on("message", function(message) {
                 message.author.send("Przypisano rolę **NEWS**");
                 message.member.addRole(role_news)
                 break;
+            case "ranga":
+            if(args[1] === ""){ message.author.send("brak podanego linka, custom nicka lub numeru profilu"); break;}
+            else
+            {
+                var platform;
+                if(message.guild.member(message.author).roles.find('name', 'XBOX'))
+                    platform = 3;
+                else if(message.guild.member(message.author).roles.find('name', 'PS4'))
+                    platform = 2.
+                else if(message.guild.member(message.author).roles.find('name', 'PC'))
+                    platform = 1;
+                else
+                {
+                    message.author.send("Brak przypisanej platformy");
+                    return;
+                }
 
+                var rankCheck = args[1];
+
+                if(rankCheck.startsWith('https://steamcommunity.com/profiles/'))
+                    rankCheck = rankCheck.replace('https://steamcommunity.com/profiles/', '');
+                
+                if(rankCheck.startsWith('https://steamcommunity.com/id/'))
+                    rankCheck = rankCheck.replace('https://steamcommunity.com/id/', '');
+
+                console.log(rankCheck);
+
+                rlsClient.getPlayer(rankCheck, platform, function(status, data)
+                {
+                    if(status === 200){
+            
+                        var retVal = 0; 
+                        for(var i = 10; i <= 13; ++i)
+                        {
+                            var gameMode = data.rankedSeasons[7][i];
+                            if(gameMode == undefined) continue;
+
+                            if(retVal < gameMode.tier)
+                                retVal = gameMode.tier;
+                        }
+                    
+                        message.author.send("Twoja najwyzsza ranga: " + rank[retVal]);
+                        var userID = message.author.username + " [" + rank[retVal] + "]";
+                        message.guild.member(message.author).setNickname(userID);
+                    }
+                    else
+                        message.author.send("Nie udało sie odnaleźć użytkownika o podanej nazwie");
+                        return;
+                });
+            }
+            
         }
     }  
 )
-
-
-
-
-
-
 
 bot.login(process.env.BOT_TOKEN);
