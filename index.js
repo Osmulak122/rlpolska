@@ -51,6 +51,11 @@ bot.on("message", function(message) {
                 message.author.send("Przypisano rolę **NEWS**");
                 message.member.addRole(role_news)
                 break;
+            case "switch":    
+            var role_ns = message.member.guild.roles.find('name', 'Nintendo Switch');
+                message.author.send("Przypisano rolę **NEWS**");
+                message.member.addRole(role_ns)
+                break;    
 
         }
     }  
