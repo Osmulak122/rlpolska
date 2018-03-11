@@ -4,7 +4,7 @@ var bot = new Discord.Client();
 
 
 var rlsClient = new rls.Client({
-    token: "X8ELHWIWBNDP0HAGVDA27PAZUBAAN94Y"
+    token: process.env.RLS_TOKEN
 });
 
 var rank = ["U","B1", "B2", "B3",
