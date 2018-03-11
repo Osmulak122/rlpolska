@@ -36,7 +36,7 @@ bot.on("message", function(message) {
                 message.channel.send("<http://grupa.rl-polska.pl>");
                 break;
             case "pomoc":
-                message.channel.send("***Aktualnie dostępne komendy:***\n\n__**Ogólne:**__\n**!administracja**\n**!grupa**\n\n__**Przydzielające Rolę:**__\n**!pc**\n**!ps4**\n**!xbox**\n**!news**\n\n__**Ranga:**__\n**!ranga link/customNick/numerProfilu");
+                message.channel.send("***Aktualnie dostępne komendy:***\n\n__**Ogólne:**__\n**!ranga** *<ID lub link do profilu>*\n**!pomoc ranga**\n**!fanpage**\n**!grupa**\n\n__**Przydzielające Rolę:**__\n**!pc**\n**!ps4**\n**!xbox**\n**!news**\n\n__**Ranga:**__\n**!ranga link/customNick/numerProfilu");
                 break;
             case "fanpage":
                 message.channel.send("<https://www.facebook.com/RLPolska/>");
@@ -70,6 +70,9 @@ bot.on("message", function(message) {
                 message.author.send("Przypisano rolę **Nintendo Switch**");
                 message.member.addRole(role_ns)
                 break;
+            case "pomoc ranga":
+                message.author.send("Przydzielanie rangi by vo0do0\n\n__Steam__ **!ranga** *<twojesteamID lub link do profilu>*\n__PS4__ **!ranga** *<twójnickname>*\n__XBOX__ **!ranga** *<twójnickname>*\n__Switch__ **Nie jest obsługiwany** :(\n\n***Gdy awansujesz i chcesz zaaktualizować rangę, powtórz komendę!***\n\n__Bot wykorzystuje API Rocket League Stats__\n<https://rocketleaguestats.com/>);
+                break;    
             case "ranga":
             if(args[1] === ""){ message.author.send("brak podanego linka, custom nicka lub numeru profilu"); break;}
             else
@@ -118,6 +121,8 @@ bot.on("message", function(message) {
                     else
                         message.author.send("Nie udało sie odnaleźć użytkownika o podanej nazwie");
                         return;
+                    
+                        
                 });
             }    
         }
