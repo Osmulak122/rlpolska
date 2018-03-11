@@ -43,27 +43,32 @@ bot.on("message", function(message) {
                 message.react("✅");
                 break;
             case "pc":
-            var role = message.member.guild.roles.find('name', 'PC');
+            var role_pc = message.member.guild.roles.find('name', 'PC');
                 message.author.send("Przypisano rolę **PC**");
                 message.author.send("Od teraz masz dostęp do wszystkich kanałów!");
-                message.member.addRole(role)
+                message.member.addRole(role_pc)
                 break;
             case "ps4":
-            var role2 = message.member.guild.roles.find('name', 'PS4');
+            var role_ps4 = message.member.guild.roles.find('name', 'PS4');
                 message.author.send("Przypisano rolę **PS4**");
                 message.author.send("Od teraz masz dostęp do wszystkich kanałów!");
-                message.member.addRole(role2)
+                message.member.addRole(role_ps4)
                 break;
             case "xbox":
-            var role3 = message.member.guild.roles.find('name', 'XBOX');
+            var role_xbox = message.member.guild.roles.find('name', 'XBOX');
                 message.author.send("Przypisano rolę **XBOX**");
                 message.author.send("Od teraz masz dostęp do wszystkich kanałów!");
-                message.member.addRole(role3)
+                message.member.addRole(role_xbox)
                 break;     
             case "news":
             var role_news = message.member.guild.roles.find('name', 'News');
                 message.author.send("Przypisano rolę **NEWS**");
                 message.member.addRole(role_news)
+                break;
+            case "switch":    
+            var role_ns = message.member.guild.roles.find('name', 'Nintendo Switch');
+                message.author.send("Przypisano rolę **NEWS**");
+                message.member.addRole(role_ns)
                 break;
             case "ranga":
             if(args[1] === ""){ message.author.send("brak podanego linka, custom nicka lub numeru profilu"); break;}
@@ -114,8 +119,7 @@ bot.on("message", function(message) {
                         message.author.send("Nie udało sie odnaleźć użytkownika o podanej nazwie");
                         return;
                 });
-            }
-            
+            }    
         }
     }  
 )
