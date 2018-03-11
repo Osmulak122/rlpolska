@@ -71,7 +71,7 @@ bot.on("message", function(message) {
                 message.member.addRole(role_ns)
                 break;
             case "pomoc ranga":
-                message.author.send("Przydzielanie rangi by vo0do0\n\n__Steam__ **!ranga** *<twojesteamID lub link do profilu>*\n__PS4__ **!ranga** *<twójnickname>*\n__XBOX__ **!ranga** *<twójnickname>*\n__Switch__ **Nie jest obsługiwany** :(\n\n***Gdy awansujesz i chcesz zaaktualizować rangę, powtórz komendę!***\n\n__Bot wykorzystuje API Rocket League Stats__\n<https://rocketleaguestats.com/>);
+                message.author.send("Przydzielanie rangi by vo0do0\n\n__Steam__ **!ranga** *<twojesteamID lub link do profilu>*\n__PS4__ **!ranga** *<twójnickname>*\n__XBOX__ **!ranga** *<twójnickname>*\n__Switch__ **Nie jest obsługiwany** :(\n\n***Gdy awansujesz i chcesz zaaktualizować rangę, powtórz komendę!***\n\n__Bot wykorzystuje API Rocket League Stats__\n<https://rocketleaguestats.com/>");
                 break;    
             case "ranga":
             if(args[1] === ""){ message.author.send("brak podanego linka, custom nicka lub numeru profilu"); break;}
