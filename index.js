@@ -28,6 +28,11 @@ bot.on("ready", function() {
 bot.on("message", function(message) {
     if (message.author.equals(bot.user)) return;
 
+    var kanal_platforma = bot.channels.find('name', 'platforma');
+    if (message.channel == kanal_platforma) {
+        message.delete();
+    }
+    
     if (!message.content.startsWith(PREFIX)) return;
         var args = message.content.substring(PREFIX.length).split(" ");
 
