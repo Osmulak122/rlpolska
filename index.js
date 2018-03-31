@@ -78,6 +78,10 @@ bot.on("message", function(message) {
             case "pomocranga":
                 message.author.send("Przydzielanie rangi by vo0do0\n\n__Steam__ **!ranga** *<twojesteamID lub link do profilu>*\n__PS4__ **!ranga** *<twójnickname>*\n__XBOX__ **!ranga** *<twójnickname>*\n__Switch__ **Nie jest obsługiwany** :(\n\n***Gdy awansujesz i chcesz zaaktualizować rangę, powtórz komendę!***\n\n__Bot wykorzystuje API Rocket League Stats__\n<https://rocketleaguestats.com/>");
                 break;    
+            case "status":
+                var rlsstatus = rlsClient.status
+                message.author.send("Aktualny status Rocket League Stats : " + rlsstatus);
+                break;
             case "ranga":
             if(args[1] === ""){ message.author.send("brak podanego linka, custom nicka lub numeru profilu"); break;}
             else
@@ -126,7 +130,7 @@ bot.on("message", function(message) {
                     }
                     else
                         message.author.send("Nie udało sie odnaleźć użytkownika o podanej nazwie");
-                        console.log(status);
+                   
                         return;
                     
                         
