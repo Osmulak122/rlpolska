@@ -109,7 +109,7 @@ bot.on("message", function(message) {
                 {
                     if(status === 200){
             
-                        console.log(status);
+                        
                         var retVal = 0; 
                         for(var i = 10; i <= 13; ++i)
                         {
@@ -126,6 +126,7 @@ bot.on("message", function(message) {
                     }
                     else
                         message.author.send("Nie udało sie odnaleźć użytkownika o podanej nazwie");
+                        console.log(status);
                         return;
                     
                         
