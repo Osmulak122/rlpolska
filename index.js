@@ -109,6 +109,7 @@ bot.on("message", function(message) {
                 {
                     if(status === 200){
             
+                        console.log(status);
                         var retVal = 0; 
                         for(var i = 10; i <= 13; ++i)
                         {
