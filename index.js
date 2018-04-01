@@ -112,9 +112,6 @@ bot.on("message", function(message) {
                 rlsClient.getPlayer(rankCheck, platform, function(status, data)
                 {
                     if(status === 200){
-                        
-                        console.log("Status : 200");
-                        
                         var retVal = 0; 
                         for(var i = 10; i <= 13; ++i)
                         {
@@ -131,7 +128,6 @@ bot.on("message", function(message) {
                     }
                     else
                         message.author.send("Nie udało sie odnaleźć użytkownika o podanej nazwie");
-                        console.log(status);
                         return;
                     
                         
