@@ -17,9 +17,9 @@ var rank = ["U","B1", "B2", "B3",
 
 const PREFIX = "!";
 
-bot.on("guildmemberAdd", function(member) {
+bot.on("guildMemberAdd", function(member) {
     member.guild.channels.find('name', 'bot_logs').send(member.toString() + " Dołączył do discorda **RL Polska**");
-});
+})
        
 bot.on("ready", function() {
     bot.user.setActivity('!pomoc');
