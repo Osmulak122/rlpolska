@@ -22,7 +22,7 @@ func1: function getPlayerRank(nick, platforma)
     {
         if(status === 200){
             
-            retVal = rank[data.rankedSeasons[7][13].tier];
+            retVal = rank[data.rankedSeasons[8][13].tier];
             message.author.send("Twoja ranga na trojkach: " + retVal);
             return retVal;
 
