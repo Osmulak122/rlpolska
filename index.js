@@ -118,7 +118,7 @@ bot.on("message", function(message) {
                         var retVal = 0; 
                         for(var i = 10; i <= 13; ++i)
                         {
-                            var gameMode = data.rankedSeasons[7][i];
+                            var gameMode = data.rankedSeasons[8][i];
                             if(gameMode == undefined) continue;
 
                             if(retVal < gameMode.tier)
