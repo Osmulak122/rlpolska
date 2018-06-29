@@ -39,7 +39,6 @@ bot.on("message", function(message) {
     if ((message.channel == general)&&(!message.author == bot.user))
             message.delete();
             message.reply("Twoja wiadomość została usunięta przez UE");
-       }
     };
 
     
