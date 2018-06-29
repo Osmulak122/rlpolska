@@ -41,7 +41,7 @@ bot.on("message", function(message) {
             if (!message.author == bot.user) {
             message.delete();
         }
-});
+};
     
     
     if (!message.content.startsWith(PREFIX)) return;
