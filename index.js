@@ -35,7 +35,7 @@ bot.on("message", function(message) {
     if (message.channel == kanal_platforma) {
         message.delete();
     }
-    if (message.channel = bot.channels.find("name", "general") {
+    if (message.channel == bot.channels.find("name", "general") {
             message.reply("Twoja wiadomość została usunięta przez UE");
             if (!message.author = bot.user) {
             message.delete();
