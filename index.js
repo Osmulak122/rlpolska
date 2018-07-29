@@ -1,8 +1,7 @@
 const Discord = require('discord.js');
 var rls = require('rls-api');
 var bot = new Discord.Client();
-var pl = bot.guild.roles.find('name', "BOT_ADMIN");
-var minty = bot.guild.member(160669529507233792);
+
 
 var rlsClient = new rls.Client({
     token: process.env.RLS_TOKEN
@@ -46,6 +45,8 @@ bot.on("message", function(message) {
     
     if (!message.content.startsWith(PREFIX)) return;
         var args = message.content.substring(PREFIX.length).split(" ");
+        var pl = message.guild.roles.find('name', "BOT_ADMIN");
+        var minty = message.guild.member(160669529507233792);
 
         switch (args[0].toLowerCase()) {
             case "grupa":
