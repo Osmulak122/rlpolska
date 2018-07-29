@@ -1,8 +1,8 @@
 const Discord = require('discord.js');
 var rls = require('rls-api');
 var bot = new Discord.Client();
-var pl = message.guild.roles.find('name', "BOT_ADMIN");
-var minty = message.guild.member(160669529507233792);
+var pl = bot.guild.roles.find('name', "BOT_ADMIN");
+var minty = bot.guild.member(160669529507233792);
 
 var rlsClient = new rls.Client({
     token: process.env.RLS_TOKEN
