@@ -30,16 +30,18 @@ bot.on("ready", function() {
 
 bot.on("message", function(message) {
     if (message.author.equals(bot.user)) return;
-
+    var msg = message.content.toLowerCase();
     var kanal_platforma = bot.channels.find('name', 'platforma');
+    var wymiana = bot.channels.find("name", "wymiana");
+    
     if (message.channel == kanal_platforma) {
         message.delete();
     }
-    var general = bot.channels.find("name", "general");
-    if ((message.channel == general)&&(!message.author == bot.user)) {
-            message.delete();
-            message.reply("Twoja wiadomość została usunięta przez UE");
-    };
+    if (message.channel == wymiana) {
+        if(!msg.includes("[H]"&&"[W]" || "{H}"&&"{W}" || "(H)"&&"(W)")) {
+        message.delete();
+        message.channel.send("Wiadomość musi zawierać `[H] i [W]");
+    }
 
     
     
