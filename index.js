@@ -38,7 +38,7 @@ bot.on("message", function(message) {
         message.delete();
     }
     if (message.channel == wymiana) {
-        if(!msg.includes("[H]","[W]")) {
+        if(!message.content.toLowerCase().includes("[H]" || "[W]")) {
         message.delete();
         message.channel.send("Wiadomość musi zawierać `[H] i [W]`");
         }
