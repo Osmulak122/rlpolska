@@ -38,9 +38,9 @@ bot.on("message", function(message) {
         message.delete();
     }
     if (message.channel == wymiana) {
-        if(!msg.includes("[H]"&&"[W]" || "{H}"&&"{W}" || "(H)"&&"(W)")) {
+        if(!msg.includes("[H]"&&"[W]")) {
         message.delete();
-        message.channel.send("Wiadomość musi zawierać `[H] i [W]");
+        message.channel.send("Wiadomość musi zawierać `[H] i [W]`");
         }
     }
 
