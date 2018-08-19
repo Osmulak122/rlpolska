@@ -41,6 +41,7 @@ bot.on("message", function(message) {
         if(!msg.includes("[H]"&&"[W]" || "{H}"&&"{W}" || "(H)"&&"(W)")) {
         message.delete();
         message.channel.send("Wiadomość musi zawierać `[H] i [W]");
+        }
     }
 
     
