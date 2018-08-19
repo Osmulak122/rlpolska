@@ -37,13 +37,15 @@ bot.on("message", function(message) {
     if (message.channel == kanal_platforma) {
         message.delete();
     }
+    
     if (message.channel == wymiana) {
-        if(!message.content.toLowerCase().includes("[H]")) { 
-        message.delete();
-        message.channel.send("Wiadomość musi zawierać `[H] i [W]`");
-            }
+        if(message.content.toLowerCase().includes("[h]" && "[w]")) {
+            return;
+        } else {
+            message.delete();
+            message.channel.send("Oferta musi zawierać `[H]` i `[W]`");
         }
-
+    }
     
     
     if (!message.content.startsWith(PREFIX)) return;
@@ -67,6 +69,11 @@ bot.on("message", function(message) {
                 message.author.send("Przypisano rolę **PC**");
                 message.author.send("Od teraz masz dostęp do wszystkich kanałów!");
                 message.member.addRole(role_pc)
+                break;
+            case "mm":
+                var msgauthor = message.author;
+                message.channel.send("Wysłano wiadomość do Middlemanów");
+                bot.channels.find("name","middleman").send(msgauthor + " potrzebuje middlemana");
                 break;
             case "ps4":
             var role_ps4 = message.member.guild.roles.find('name', 'PS4');
