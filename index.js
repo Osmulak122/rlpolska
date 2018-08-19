@@ -38,10 +38,7 @@ bot.on("message", function(message) {
         message.delete();
     }
     if (message.channel == wymiana) {
-        if(message.content.toLowerCase().includes("[H]"||"[W]")) { 
-        console.log("oki");
-        return;
-        } else {
+        if(!message.content.toLowerCase().includes("[H]")) { 
         message.delete();
         message.channel.send("Wiadomość musi zawierać `[H] i [W]`");
             }
