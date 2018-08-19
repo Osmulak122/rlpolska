@@ -40,12 +40,11 @@ bot.on("message", function(message) {
     if (message.channel == wymiana) {
         if(message.content.toLowerCase().includes("[H]" && "[W]")) {
         return;
-            else {
+        }  else {
         message.delete();
         message.channel.send("Wiadomość musi zawierać `[H] i [W]`");
             }
         }
-    }
 
     
     
