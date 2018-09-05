@@ -86,10 +86,7 @@ bot.on("message", function(message) {
 
                 msgauthor.addRole(traderole);
                 tagged.addRole(traderole);
-                
-                var user1 = msgauthor;
-                var user2 = tagged;
-                
+
                 message.channel.send("Wysłano wiadomość do Middlemanów");
                 bot.channels.find("name","middleman").send(msgauthor + " i " + tagged + " potrzebują middlemana");
                 bot.channels.find("name","wymieniarka").send("<@&474534161299013662> ! " +  msgauthor + " i " + tagged + " potrzebują middlemana");
@@ -97,9 +94,11 @@ bot.on("message", function(message) {
                 break;
                 case "close":
                 if (message.channel == bot.channels.find("wymieniarka")) {
-                    var tagi = message.guild.member(message.mentions.users);
-                    tagi.removeRole(traderole);
-                    message.channel.send("!clear 1000");
+                    var tag1 = args[1];
+                    var tag2 = args[2];
+                    tag1.removeRole(traderole);
+                    tag2.removeRole(traderole);
+                    message.channel.send("!clear 100");
                 }
                 break;
             case "ps4":
