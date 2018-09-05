@@ -83,7 +83,7 @@ bot.on("message", function(message) {
                 
                 message.channel.send("Wysłano wiadomość do Middlemanów");
                 bot.channels.find("name","middleman").send(msgauthor + " i " + tagged + " potrzebują middlemana");
-                bot.channels.find("name","wymieniarka").send("<@&486904417581269022> ! " +  msgauthor + " i " + tagged + " potrzebują middlemana");
+                bot.channels.find("name","wymieniarka").send("<@&474534161299013662> ! " +  msgauthor + " i " + tagged + " potrzebują middlemana");
                 bot.channels.find("name","wymieniarka").send("Prosimy o opisanie trade!");
               
                 break;
