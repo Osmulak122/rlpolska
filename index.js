@@ -102,6 +102,7 @@ bot.on("message", function(message) {
                         message.channel(bot.channels.find("name", "wymieniarka").send("!clear 1000"));
                     }
                 }
+                break;
             case "ps4":
             var role_ps4 = message.member.guild.roles.find('name', 'PS4');
                 message.author.send("Przypisano rolę **PS4**");
