@@ -73,7 +73,13 @@ bot.on("message", function(message) {
                 message.author.send("Od teraz masz dostęp do wszystkich kanałów!");
                 message.member.addRole(role_pc)
                 break;
-            case "mm":
+            case "pc":
+            var role_pc = message.member.guild.roles.find('name', 'PC');
+                message.author.send("Przypisano rolę **PC**");
+                message.author.send("Od teraz masz dostęp do wszystkich kanałów!");
+                message.member.addRole(role_pc)
+                break;
+                case "mm":
                 message.delete();
 
                 if(!args[1]){ message.channel.send("Otaguj osobę, z którą się wymieniasz!"); break;}
@@ -81,12 +87,21 @@ bot.on("message", function(message) {
                 msgauthor.addRole(traderole);
                 tagged.addRole(traderole);
                 
+                var user1 = msgauthor;
+                var user2 = tagged;
+                
                 message.channel.send("Wysłano wiadomość do Middlemanów");
                 bot.channels.find("name","middleman").send(msgauthor + " i " + tagged + " potrzebują middlemana");
                 bot.channels.find("name","wymieniarka").send("<@&474534161299013662> ! " +  msgauthor + " i " + tagged + " potrzebują middlemana");
                 bot.channels.find("name","wymieniarka").send("Prosimy o opisanie trade!");
-              
-                break;
+
+                if (message.channel == "wymieniarka") {
+                    if(message.content == "!close") {
+                        user1.removeRole(traderole);
+                        user2.removeRole(traderole);
+                        message.channel(bot.channels.find("name", "wymieniarka").send("!clear 1000"));
+                    }
+                }
             case "ps4":
             var role_ps4 = message.member.guild.roles.find('name', 'PS4');
                 message.author.send("Przypisano rolę **PS4**");
