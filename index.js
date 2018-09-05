@@ -46,16 +46,12 @@ bot.on("message", function(message) {
             message.channel.send("Oferta musi zawierać `[H]` i `[W]`");
         }
     }
-    if (message.channel == bot.guild.c) {
-        if(message.content.toLowerCase().includes("[h]" && "[w]")) {
-            return;
+    
     
     if (!message.content.startsWith(PREFIX)) return;
         var args = message.content.substring(PREFIX.length).split(" ");
         var pl = message.guild.roles.find('name', "BOT_ADMIN");
         var minty = message.guild.member(160669529507233792);
-        var tagged = message.guild.member(message.mentions.users.first());
-        var msgauthor = message.guild.member(message.author);
         var traderole = message.guild.roles.find("name", "Trader");
 
         switch (args[0].toLowerCase()) {
@@ -75,7 +71,7 @@ bot.on("message", function(message) {
                 message.author.send("Od teraz masz dostęp do wszystkich kanałów!");
                 message.member.addRole(role_pc)
                 break;
-                case "mm":
+            case "mm":
                 message.delete();
 
                 if(!args[1]){ message.channel.send("Otaguj osobę, z którą się wymieniasz!"); break;}
@@ -96,8 +92,8 @@ bot.on("message", function(message) {
                 break;
             case "close":
                 if (message.channel == bot.channels.find("wymieniarka")) {
-                    var tagged2 = message.guild.member(message.mentions.users.forEach());
-                    tagged2.removeRole(traderole);
+                    var tagged = message.guild.member(message.mentions.users.forEach());
+                    tagged.removeRole(traderole);
                     message.channel.send("!clear 100");
                 }
                 break;
