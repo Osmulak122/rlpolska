@@ -92,7 +92,9 @@ bot.on("message", function(message) {
                 break;
             case "close":
                 if (message.channel == bot.channels.find("name", "wymieniarka")) {
-                    message.guild.member(message.mentions.users.forEach(message.member.removeRole(traderole)));
+                    message.mentions.members.forEach((member) => {
+                    member.removeRole(traderole);
+                    })
                     message.channel.send("!clear 100");
                 }
                 break;
