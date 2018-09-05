@@ -75,12 +75,6 @@ bot.on("message", function(message) {
                 message.author.send("Od teraz masz dostęp do wszystkich kanałów!");
                 message.member.addRole(role_pc)
                 break;
-            case "pc":
-            var role_pc = message.member.guild.roles.find('name', 'PC');
-                message.author.send("Przypisano rolę **PC**");
-                message.author.send("Od teraz masz dostęp do wszystkich kanałów!");
-                message.member.addRole(role_pc)
-                break;
                 case "mm":
                 message.delete();
 
@@ -101,9 +95,9 @@ bot.on("message", function(message) {
  
                 break;
             case "close":
-                if (message.channel == bot.channels.find("name", "wymieniarka")) {
-                    var tagged2 = message.guild.member(message.mentions.users.forEach);
-                    tagged2.removeRole(traderole);
+                if (message.channel == bot.channels.find("wymieniarka")) {
+                    var tagged = message.guild.member(message.mentions.users.forEach());
+                    tagged.removeRole(traderole);
                     message.channel.send("!clear 100");
                 }
                 break;
