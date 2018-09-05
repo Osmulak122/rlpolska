@@ -76,7 +76,7 @@ bot.on("message", function(message) {
             case "mm":
                 message.delete();
 
-                if(args[1] === ""){ message.channel.send("Otaguj osobę, z którą się wymieniasz!"); break;}
+                if(!tagged){ message.channel.send("Otaguj osobę, z którą się wymieniasz!"); break;}
 
                 msgauthor.addRole(traderole);
                 tagged.addRole(traderole);
