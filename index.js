@@ -52,7 +52,7 @@ bot.on("message", function(message) {
         var args = message.content.substring(PREFIX.length).split(" ");
         var pl = message.guild.roles.find('name', "BOT_ADMIN");
         var minty = message.guild.member(160669529507233792);
-        var tagged = message.guild.member(message.mentions.users.first);
+        var tagged = message.mentions.users.first);
         var msgauthor = message.guild.member(message.author);
         var traderole = message.guild.roles.find("name", "Trader");
 
