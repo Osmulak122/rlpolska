@@ -96,8 +96,8 @@ bot.on("message", function(message) {
                 break;
             case "close":
                 if (message.channel == bot.channels.find("wymieniarka")) {
-                    var tagged = message.guild.member(message.mentions.users.forEach());
-                    tagged.removeRole(traderole);
+                    var tagged2 = message.guild.member(message.mentions.users.forEach());
+                    tagged2.removeRole(traderole);
                     message.channel.send("!clear 100");
                 }
                 break;
