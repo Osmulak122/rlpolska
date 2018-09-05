@@ -94,13 +94,12 @@ bot.on("message", function(message) {
                 bot.channels.find("name","middleman").send(msgauthor + " i " + tagged + " potrzebują middlemana");
                 bot.channels.find("name","wymieniarka").send("<@&474534161299013662> ! " +  msgauthor + " i " + tagged + " potrzebują middlemana");
                 bot.channels.find("name","wymieniarka").send("Prosimy o opisanie trade!");
-
-                if (message.channel == "wymieniarka") {
-                    if(message.content == "!close") {
-                        user1.removeRole(traderole);
-                        user2.removeRole(traderole);
-                        message.channel(bot.channels.find("name", "wymieniarka").send("!clear 1000"));
-                    }
+                break;
+                case "close":
+                if (message.channel == bot.channels.find("wymieniarka")) {
+                    var tagi = message.guild.member(message.mentions.users);
+                    tagi.removeRole(traderole);
+                    message.channel.send("!clear 1000");
                 }
                 break;
             case "ps4":
