@@ -52,6 +52,9 @@ bot.on("message", function(message) {
         var args = message.content.substring(PREFIX.length).split(" ");
         var pl = message.guild.roles.find('name', "BOT_ADMIN");
         var minty = message.guild.member(160669529507233792);
+        var tagged = message.guild.member(message.mentions.users.first);
+        var msgauthor = message.author;
+        var traderole = message.guild.roles.find("name", "Trader");
 
         switch (args[0].toLowerCase()) {
             case "grupa":
@@ -71,9 +74,18 @@ bot.on("message", function(message) {
                 message.member.addRole(role_pc)
                 break;
             case "mm":
-                var msgauthor = message.author;
+                message.delete();
+
+                if(args[1] === ""){ message.channel.send("Otaguj osobę, z którą się wymieniasz!"); break;}
+
+                msgauthor.addRole(traderole);
+                tagged.addRole(traderole);
+                
                 message.channel.send("Wysłano wiadomość do Middlemanów");
-                bot.channels.find("name","middleman").send(msgauthor + " potrzebuje middlemana");
+                bot.channels.find("name","middleman").send(msgauthor + " i " + tagged + " potrzebują middlemana");
+                bot.channels.find("name","wymieniarka").send("<@&486904417581269022> ! " +  msgauthor + " i " + tagged + " potrzebują middlemana");
+                bot.channels.find("name","wymieniarka").send("Prosimy o opisanie trade!");
+              
                 break;
             case "ps4":
             var role_ps4 = message.member.guild.roles.find('name', 'PS4');
