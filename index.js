@@ -141,6 +141,7 @@ bot.on("message", function(message) {
                 message.author.send("Aktualny status Rocket League Stats : " + rlsstatus);
                 break;
             case "ranga":
+                message.channel.send("**PSYONIX wyłączyli API**\n*Komenda nieaktywna*"); return;
             if(args[1] === ""){ message.author.send("brak podanego linka, custom nicka lub numeru profilu"); break;}
             else
             {
